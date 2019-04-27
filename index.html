@@ -14,26 +14,22 @@
 </head>
 
 <body>
-    <form class="container" id="mainform" novalidate action="interface.html">   
-         <h1>Welcome Back Login!!</h1>
+    <form action="" name="from" class="container" validate>
+        <h1>Welcome Back Login!!</h1>
         <div class="form-group">
             <div class="col-md-4 mb-3">
                 <label for="validationTooltip01">Email</label>
-                <input type="email" class="form-control" id="validationTooltip01" placeholder="Email" required>
+                <input type="email" name="email" class="form-control" id="validationTooltip01" placeholder="Email"
+                    required>
             </div>
             <div class="col-md-4 mb-3">
                 <label for="validationTooltip02">Password</label>
-                <input type="password" class="form-control" id="validationTooltip02" placeholder="Password"
-                    aria-describedby="validationTooltipUsernamePrepend" required>
+                <input type="password" name="password" class="form-control" id="validationTooltip02"
+                    placeholder="Password" aria-describedby="validationTooltipUsernamePrepend" required>
             </div>
-            <div class="custom-control custom-checkbox mb-3">
-                <input type="checkbox" class="custom-control-input" id="customControlValidation1" required>
-                <label class="custom-control-label" for="customControlValidation1">Check this custom
-                    checkbox</label>
-                <div class="invalid-feedback">Example invalid feedback text</div> <br>
-            </div>
-            <button class="btn btn-primary" type="submit">Submit form</button>
+            <input type="button" onclick="check(this.form)" value="Submit form" class="btn btn-primary">
     </form>
+
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -45,16 +41,31 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
-    <script>
-        $(function () {
-            $('#mainform').submit(function (event) {
-                var form = $('#mainform')[0];
-                if (form.checkValidity() === false) {
-                    event.preventDefault();
+    <script language="javascript">
+        function check(form) {
+            var email = $("#email").val();
+            var password = $("#password").val();
+            if (from.email.value == "admin@nw.com" && from.password.value == "12345**") {
+                var r = confirm("คุณแน่ใจแล้วใช่ไหม");
+                if (r == true) {
+                    window.location = "dashboard.html";
                 }
-                $(this).addClass('was-validated');
-            });
-        });
+            } else {
+                if (document.from.email.value == "" && document.from.password.value == "") {
+                    alert("กรุณากรอก Eamil And Password");
+                    return false;
+                } else if (document.from.email.value == "") {
+                    alert("กรุณากรอก Email");
+                    return false;
+                } else if (document.from.password.value == "") {
+                    alert("กรุณากรอก Password");
+                    return false;
+                } else if (!(document.from.email.value == "" && document.from.password.value == "")) {
+                    alert("Email Or Password Earro");
+                    return false;
+                }
+            }
+        }
     </script>
 </body>
 
